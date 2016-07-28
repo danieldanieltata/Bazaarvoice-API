@@ -1,7 +1,7 @@
 import json
 import requests
 
-from bazaarvoice_api.product_page import Product
+from bazaarvoice_api.product import Product
 
 
 class BazaarvoiceAPI:
@@ -53,7 +53,8 @@ class BazaarvoiceAPI:
         return start_url
 
     # Check if the response received is OK
-    def _check_response(self, json_data):
+    @staticmethod
+    def _check_response(json_data):
         has_errors = bool(json_data['HasErrors'])
         if has_errors:
             errors = json_data['Errors']
@@ -68,8 +69,8 @@ class BazaarvoiceAPI:
         products = json_product_data.get('Results', None)
 
         if products:
-            for product in products:
-                product_obj = Product(product, self.start_url)
+            for product_item in products:
+                product_obj = Product(product_item, self.start_url)
 
                 yield product_obj
 
