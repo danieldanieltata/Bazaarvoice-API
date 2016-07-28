@@ -37,12 +37,12 @@ class Product(object):
         for i in range(0, review_max_offset + 100, 100):
             offset = i
 
-            review_content = requests.get(review_url, headers=self.headers).text
-            review_json = json.loads(review_content)
-
             review_url = self._make_new_page_url(offset, review_url)
 
             yield review_json['Results']
+
+            review_content = requests.get(review_url, headers=self.headers).text
+            review_json = json.loads(review_content)
 
     @staticmethod
     def _make_new_page_url(offset, review_url):
