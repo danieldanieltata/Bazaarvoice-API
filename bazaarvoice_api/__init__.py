@@ -95,12 +95,3 @@ class BazaarvoiceAPI:
 
         return new_reviews_url
 
-
-bazzare = BazaarvoiceAPI('caKM8b618jM7usc0wJfL98n9Ospp9LvgNilEMqrBHOXSo', 'Aussie')
-
-data_container = []
-
-for prod in bazzare.get_product():
-    data_container.append(prod)
-
-pass
