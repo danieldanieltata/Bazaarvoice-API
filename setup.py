@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='Bazaarvoice-API',
+setup(name='bazaarvoice-api',
       description='Bazaarvoice-API module',
       author='Daniel Talor Moses',
       author_email='danieldanieltalortalor@gmail.com',
