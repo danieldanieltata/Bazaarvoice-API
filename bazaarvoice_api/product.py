@@ -32,7 +32,7 @@ class Product(object):
         review_content = requests.get(review_url, headers=self.headers).text
 
         review_json = json.loads(review_content)
-        review_max_offset = floor(int(review_json['TotalResults']) / 100.0) * 100
+        review_max_offset = int(floor(int(review_json['TotalResults']) / 100.0) * 100)
 
         for i in range(0, review_max_offset + 100, 100):
             offset = i
